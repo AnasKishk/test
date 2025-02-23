@@ -1,13 +1,9 @@
-name: (testing)
+name: testing
 
 on:
   push:
     branches:
       - master
-
-  # pull_request:
-  #   branches:
-  #     - service-to-run
 
   workflow_dispatch:
     inputs:
@@ -31,14 +27,13 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Create archive for service_1
-        if: ${{ github.event.inputs.service == 'service_1' }}
+        if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.service == 'service_1' }}
         run: echo "Hello service_1"
 
       - name: Create archive for service_2
-        if: ${{ github.event.inputs.service == 'service_2' }}
+        if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.service == 'service_2' }}
         run: echo "Hello service_2"
 
       - name: Create archive for service_3
-        if: ${{ github.event.inputs.service == 'service_3' }}
+        if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.service == 'service_3' }}
         run: echo "Hello service_3"
-
