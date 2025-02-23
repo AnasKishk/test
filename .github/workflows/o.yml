@@ -5,6 +5,10 @@ on:
     branches:
       - master
 
+#   pull_request:
+#     branches:
+#       - service-to-run  
+
   workflow_dispatch:
     inputs:
       service:
