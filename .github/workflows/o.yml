@@ -3,7 +3,7 @@ name: (testing)
 on:
   push:
     branches:
-      - service-to-run
+      - master
 
   # pull_request:
   #   branches:
